@@ -1,0 +1,70 @@
+{
+  "schema": "wfp-memory-forensics-validation-v2",
+  "generated_utc": "2026-11-25T19:23:20.570617+00:00",
+  "entry": {
+    "name": "WFP Memory Forensics for Volatility 3",
+    "repository": "https://github.com/chizzydev/wfp-memory-forensics",
+    "evaluation_mode": "single integrated entry",
+    "plugins": [
+      "windows.wfpfilters.WfpFilters",
+      "windows.wfpcheck.WfpCheck",
+      "windows.wfpcallouts.WfpCallouts"
+    ]
+  },
+  "framework": {
+    "name": "Volatility 3",
+    "version": "2.28.2",
+    "stable_commit": "881e970121c16f0932fb9d16fbd5fb258cbcbf75",
+    "python": "3.12.10",
+    "latest_stable_compatibility": "PASS"
+  },
+  "source_sha256": {
+    "wfpfilters.py": "BD5703A884D55F652328F3326DDDD30F59AD1D6038D03DDAA88E401C74128B7C",
+    "wfpcheck.py": "7E1683A9A5F02DAD8C63034018F18850A39F7A6A458E95648BACA61AE875CF30",
+    "wfpcallouts.py": "F71FC85972D0849A849080818504A7C171CA12351500EB0E16D7EC16D8BAA691"
+  },
+  "canonical_sample": {
+    "filename": "wfp-memory-forensics-canonical-win11-26300.9974.elf",
+    "size_bytes": 4438826344,
+    "sha256": "2BD6C3ABE1AA694F80C7AA2E8D31285F174593649CA61D223BE29D7492BA9187",
+    "windows": "Windows 11 Enterprise Evaluation 26H2 build 26300.9974",
+    "committed_to_git": false
+  },
+  "canonical_semantics": {
+    "filter_id": 67913,
+    "action": "BLOCK",
+    "layer": "ALE_AUTH_CONNECT_V4",
+    "protocol": "TCP/6",
+    "remote_port": 8782,
+    "decoded_conditions": "2/2",
+    "wfpcheck_finding": "DIRECT_FILTER_ACTION",
+    "wfpcheck_meaning": "BLOCK",
+    "wfpcallouts_rows": 91,
+    "status": "PASS"
+  },
+  "heldout_cross_build": {
+    "heldout_filters_recovered": "4/4",
+    "heldout_semantics_matched": "4/4",
+    "nonboot_live_filters": 580,
+    "nonboot_recovered": 580,
+    "nonboot_coverage": 1.0,
+    "layer_names": "580/580",
+    "condition_fields": "2233/2233",
+    "extra_runtime_ids": 0,
+    "missing_ids": "boot-time filters only",
+    "build": "26300.9457"
+  },
+  "claim_boundary": {
+    "recoverable_allocation_implies_active": false,
+    "boot_time_filters_in_current_runtime_path": false
+  },
+  "exact_reproduction": {
+    "wfpfilters_command": "python vol.py -q -r json -f wfp-memory-forensics-canonical-win11-26300.9974.elf windows.wfpfilters.WfpFilters --filter-id 67913",
+    "wfpcheck_command": "python vol.py -q -r json -f wfp-memory-forensics-canonical-win11-26300.9974.elf windows.wfpcheck.WfpCheck --include-direct --select-filter-id 67913",
+    "wfpcallouts_command": "python vol.py -q -r json -f wfp-memory-forensics-canonical-win11-26300.9974.elf windows.wfpcallouts.WfpCallouts",
+    "exact_selected_wfpfilters_rows": 1,
+    "exact_selected_wfpcheck_rows": 1,
+    "wfpcallouts_rows": 91,
+    "status": "PASS"
+  }
+}

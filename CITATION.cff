@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software in research, please cite the repository."
+title: "WFP Memory Forensics for Volatility 3"
+type: software
+authors:
+  - name: "chizzydev"
+year: 2026
+repository-code: "https://github.com/chizzydev/wfp-memory-forensics"
+url: "https://github.com/chizzydev/wfp-memory-forensics"
+license-url: "https://www.volatilityfoundation.org/license/vsl-v1.0"
